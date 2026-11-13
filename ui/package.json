@@ -1,0 +1,131 @@
+{
+  "name": "logscope-ui",
+  "version": "1.1.0",
+  "description": "High-performance log collection and analysis workspace",
+  "author": "LogScope",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "package": "electron-builder --win",
+    "portable": "electron-builder --win portable",
+    "unpacked": "electron-builder --win dir"
+  },
+  "devDependencies": {
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.logscope.desktop",
+    "productName": "LogScope",
+    "asar": false,
+    "electronDist": "node_modules/electron/dist",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico"
+    },
+    "files": [
+      "main.js",
+      "core-shutdown.cjs",
+      "preload.js",
+      "renderer.js",
+      "analysis.js",
+      "log-cache.js",
+      "workbench.js",
+      "terminal-tools.js",
+      "terminal-options-panel.js",
+      "terminal-options.js",
+      "session-encoding.js",
+      "index.html",
+      "style.css",
+      "package.json",
+      "log-files.cjs",
+      "device-services.cjs",
+      "terminal-view.js",
+      "automation.js",
+      "log-index.cjs",
+      "index-cache.cjs",
+      "vault.cjs",
+      "interface.js",
+      "ui-actions.js",
+      "send-box.js",
+      "workspace-controls.js",
+      "config-controls.js",
+      "log-stream.cjs",
+      "workstation.js",
+      "workstation.css",
+      "serial-metadata.js",
+      "source-extensions.js",
+      "command-template.js",
+      "command-tools.js",
+      "frame-analysis.js",
+      "frame-tools.js",
+      "file-transfer.js",
+      "transfer-tools.js",
+      "kb-vector.js",
+      "appearance.js",
+      "settings.js",
+      "diagnostic-locale.js",
+      "parser-editor.js",
+      "sftp-panel.js",
+      "evidence-links.js",
+      "multipane.js",
+      "telemetry.js",
+      "drop-indicator.js",
+      "recovery.cjs",
+      "regex-runner.js",
+      "regex-worker.js",
+      "rule-pipeline.js",
+      "rule-editor.js",
+      "local-model.cjs",
+      "local-model-tools.js",
+      "log-navigation.js",
+      "log-virtual.js",
+      "search-options.js",
+      "output-enhancements.js",
+      "log-selection.js",
+      "log-find.js",
+      "hit-list.js",
+      "navigation-tools.js",
+      "replay-clock.js",
+      "replay-tools.js",
+      "appearance.css",
+      "windterm.css",
+      "schedule-send.js",
+      "log-composer.js",
+      "command-completion.js",
+      "ui-density.js",
+      "analysis-report.js",
+      "ai-providers.cjs",
+      "ai-provider-tools.js"
+    ],
+    "extraResources": [
+      {
+        "from": "../core/build/Release",
+        "to": "core",
+        "filter": [
+          "**/*",
+          "!**/*.map",
+          "!**/*.pdb",
+          "!**/*.ilk",
+          "!**/*.exp",
+          "!**/*.lib"
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-search": "0.16.0",
+    "@xterm/addon-serialize": "0.14.0",
+    "@xterm/addon-unicode11": "0.9.0",
+    "@xterm/addon-web-links": "0.12.0",
+    "@xterm/xterm": "^6.0.0"
+  }
+}

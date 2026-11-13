@@ -1,0 +1,53 @@
+# Dependencies and build output
+node_modules/
+build/
+dist/
+release/
+out/
+.vs/
+
+# Generated and packaged binaries
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.obj
+*.lib
+*.map
+
+# Tests, diagnostics and generated results
+*.test.cjs
+e2e*
+smoke*
+soak*
+*-result.json
+*-report.json
+test-report.json
+workstation-preview.png
+*.log
+
+# Local settings, credentials and runtime data
+.env
+.env.*
+ui/config.json
+ui/settings.json
+ui/sessions.json
+ui/audit.jsonl
+ui/runtime-keys/
+*.pem
+*.key
+*.pfx
+*.p12
+*.sqlite
+*.sqlite3
+*.db
+
+# Editor and OS files
+.idea/
+.vscode/
+*.user
+CMakeUserPresets.json
+Thumbs.db
+.DS_Store
+__pycache__/
+*.pyc

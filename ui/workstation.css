@@ -1,0 +1,126 @@
+:root{--session-width:230px;--analysis-width:320px;--line:#2d3f50;--muted:#8ba1b5;--fg:#dde8f2}
+body{background:#0d141d;font-family:'Segoe UI','Microsoft YaHei UI',sans-serif}header{height:62px;background:#111e2c;padding:0 16px;gap:8px;overflow:visible}header b{color:#5be0bf;letter-spacing:1px}header span{font-size:12px}header button{white-space:nowrap;font-size:12px;padding:8px 12px;border:1px solid #31485c;border-radius:7px}header #ai{background:#263a62;border-color:#5576ad}main{height:calc(100vh - 90px);grid-template-columns:var(--session-width) 5px minmax(320px,1fr) 5px var(--analysis-width)}aside{background:#121d29;padding:14px 10px;border:0;min-width:0}.analysis{background:#101a26;border:0}.panel-grip{cursor:col-resize;background:#203244;touch-action:none}.panel-grip:hover,.panel-grip:focus{background:#4cbea6}.layout-buttons{display:flex;gap:4px;margin-left:auto}.header-more{position:relative;font-size:12px}.header-more summary{cursor:pointer;white-space:nowrap;padding:8px;background:#233343;border-radius:6px}.header-more-items{position:fixed;width:180px;display:grid;padding:8px;gap:5px;background:#172636;box-shadow:0 10px 30px #0009;border:1px solid #42586d;border-radius:8px;z-index:30}
+.tabs{height:43px;background:#0e1722}.tab{font-size:12px;padding:9px 10px}.tab.active{background:#192838;border-top:2px solid #54d3b3}.tab-health{font-size:9px;color:#8198aa}.tab[data-state=connected] .tab-health{color:#5bd6a4}.tab[data-state=error] .tab-health,.tab[data-state=reconnecting] .tab-health{color:#ffc66b}.filter{height:46px;background:#131f2b}.filter input{min-width:100px}.filter #status{max-width:35%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.toolbox{padding:7px 12px;background:#13212f}.toolbox summary{font-size:12px}.toolbox select{margin-left:8px}.saved-item{padding:10px 6px;border-radius:6px;margin:3px 0}.saved-item:hover{background:#203449}.saved-detail strong{font-size:12px;font-weight:600}.saved-detail small{color:#829db4}.log-actions{background:#152331}.log-actions button{border:1px solid #2d4356;border-radius:5px}.log-meter{padding:5px 12px;background:#101b27}
+#terminal{background:#0c131c;padding:0;font-size:12px}.log-row{display:grid;grid-template-columns:180px 60px 90px minmax(150px,1fr);gap:8px;padding:5px 12px;border-bottom:1px solid #ffffff06;align-items:start;white-space:normal}.log-row:nth-child(even){background:#ffffff02}.log-row:hover{background:#25354b55}.log-time{color:#829bad;font-size:11px;white-space:nowrap}.log-level{font:600 10px/1.7 Consolas;border-radius:4px;background:#ffffff09;text-align:center}.log-module{font-size:11px;color:#8dabc1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.log-message{white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}.log-message summary{cursor:pointer;list-style-position:inside;white-space:pre-wrap}.log-message details[open]{background:#172231}.log-message .stack-body{display:block;white-space:pre-wrap;margin:5px 0 0;padding:7px 10px;border-left:2px solid #476384}.manager-dialog{padding:20px;max-height:85vh;overflow:auto}.manager-dialog input{background:#0d1722;color:#dde8f2;border:1px solid #47617b;padding:8px;width:100%;border-radius:5px}.manager-dialog button{margin:5px}.history-row{display:block;width:95%;text-align:left;font:12px Consolas;overflow-wrap:anywhere}.manager-dialog>div{max-height:350px;overflow:auto}.exception-group{display:block;width:100%;font:11px/1.5 Consolas;text-align:left;margin:6px 0;padding:8px;border-left:2px solid #dfa752;white-space:pre-wrap;overflow-wrap:anywhere}#exceptionGroups{font-size:12px;border-bottom:1px solid #304356;margin-bottom:12px;padding-bottom:10px}#exceptionGroups summary{cursor:pointer;color:#dfbf82}#exceptionGroups>div{max-height:240px;overflow:auto}
+#eventGroups{font-size:12px;border-bottom:1px solid #304356;margin-bottom:12px;padding-bottom:10px}#eventGroups summary{cursor:pointer;color:#7fd7ff}#eventGroups>div{max-height:200px;overflow:auto}.event-group{display:block;width:100%;font:11px/1.5 Consolas;text-align:left;margin:6px 0;padding:8px;border-left:2px solid #7fd7ff;white-space:pre-wrap;overflow-wrap:anywhere}.finding{background:#172636;border-left-width:2px;border-radius:6px}#workspaceStatus{height:28px;line-height:28px;padding:0 14px;background:#172b3c;color:#8daac0;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.light-theme main,.light-theme #terminal{background:#f2f6fa;color:#263747}.light-theme .log-row{border-color:#cdd9e2}.light-theme .log-row:hover{background:#dbe9f4}.light-theme .level-INFO{color:#243d51}.light-theme .level-WARN{color:#875e00}.light-theme .level-ERROR{color:#b82838}.light-theme .level-DEBUG{color:#166396}.light-theme .level-TRACE{color:#7452a0}
+@media(max-width:1200px){header #subtitle{display:none}.log-row{grid-template-columns:145px 55px minmax(140px,1fr)}.log-module{display:none}.layout-buttons button{padding:8px}.tab-health{display:none}}
+main>aside:first-child{grid-column:1;grid-row:1}main>.panel-grip[data-side=left]{grid-column:2;grid-row:1}main>section{grid-column:3;grid-row:1}main>.panel-grip[data-side=right]{grid-column:4;grid-row:1}main>.analysis{grid-column:5;grid-row:1}
+aside input:not([type=checkbox]){width:100%;background:#0e1925;border:1px solid #354c61;color:#d6e4ef;padding:8px;border-radius:5px;font-size:12px}.log-time{overflow:hidden;text-overflow:ellipsis}.light-theme aside input:not([type=checkbox]){background:#f5f8fa;color:#263c51}
+
+/* The input line under the output. It is a sibling of the log canvas, aligned with it, and it
+   carries the same colours as #terminal so the two read as one surface. */
+#logComposer{background:#0c131c;color:#becbd3}
+#logComposer input{background:transparent;border:0;color:inherit}
+#logComposer #composerState{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:45%}
+/* A view toggle that only changes its label is a toggle nobody can read at a glance. */
+[data-view][aria-pressed=true]{background:#1d3a4d;border-color:#57a6c9;color:#bfe6f5;box-shadow:inset 0 0 0 1px #57a6c955}
+/* The four analysis sections are the same shape as the exception and event panels above them. */
+.analysis-section{border-left:3px solid var(--stroke,#3d5561);background:var(--surface-alt,#161e23);color:var(--text,#dde8f2);margin:10px 0;border-radius:4px;padding:6px 8px;font-size:12px;border-bottom:1px solid var(--line,#304356)}
+.analysis-section summary{cursor:pointer;font:700 12px Consolas;letter-spacing:.4px}
+.analysis-body{margin-top:6px;font:12px/1.55 Consolas;white-space:pre-wrap;word-break:break-word;max-height:260px;overflow:auto}
+#rankedCauses summary{color:#f6c453}
+#sigGroups summary{color:#ff9d9d}
+#lifecycleTimeline summary{color:#7fd7ff}
+#trendPanel summary{color:#a9e07f}
+.evidence-jump{cursor:pointer;border-radius:4px}
+.evidence-jump:hover{background:#2b4457;color:#dde8f2}
+#fullReport{align-self:flex-start}
+#analysisReportDialog{width:min(860px,94vw)}
+#analysisReportDialog h3{font:700 13px Consolas;color:var(--accent,#5be0bf);margin:0 0 10px}
+#analysisReportDialog pre{margin-top:8px;font:12px/1.55 Consolas}
+#timerRepeat{margin-left:6px}
+#timerCountdown{color:var(--green,#55d98b);font:12px Consolas}
+#timerCount{font:12px Consolas;color:var(--muted,#8ea0ad)}
+#timerHint{opacity:.8}
+
+/* WindTerm 式输出增强（search-options.js / output-enhancements.js）：
+   搜索选项开关、命中行内标记、命中计数、回到底部胶囊、时间戳列开关。 */
+.filter button#searchCaseToggle,.filter button#searchRegexToggle{flex:0 0 auto;padding:7px 10px;font:12px Consolas;border:1px solid #34444f;border-radius:4px;color:var(--muted,#8ea0ad)}
+.filter button#wtPrevMatch,.filter button#wtNextMatch{flex:0 0 auto;padding:6px 9px}
+.filter button[aria-pressed=true]{background:#1d3a4d;border-color:#57a6c9;color:#bfe6f5}
+#wtMatchCount{white-space:nowrap;font-size:12px}
+mark.wt-hit{background:#d9b64b;color:#14181c;border-radius:2px}
+mark.wt-hit-active{outline:2px solid #ff9d5c;outline-offset:-1px}
+.log-row.wt-hit-row{background:#25354b66}
+body.light-theme mark.wt-hit{background:#ffd75e;color:#3a2c00}
+body.contrast-theme mark.wt-hit{background:#ff0;color:#000}
+#wtBackToBottom{position:fixed;z-index:60;padding:7px 16px;border-radius:16px;border:1px solid #57a6c9;background:#1d3a4d;color:#bfe6f5;font-size:12px;box-shadow:0 6px 18px #0006;cursor:pointer}
+#wtBackToBottom[hidden]{display:none}
+#wtBackToBottom:hover{background:#264a60}
+body[data-theme] #wtBackToBottom{background:var(--surface-raised);color:var(--text);border-color:var(--stroke)}
+.log-actions button[aria-pressed=true]{background:#1d3a4d;border-color:#57a6c9;color:#bfe6f5}
+#terminal.wt-hide-time .log-time{display:none}
+#terminal.wt-hide-time .log-row{grid-template-columns:60px 90px minmax(150px,1fr)}
+@media(max-width:1200px){#terminal.wt-hide-time .log-row{grid-template-columns:55px minmax(140px,1fr)}}
+
+/* 虚拟滚动 + 命中列表（log-virtual.js / hit-list.js）：
+   斑马纹改为按数据行号打 .vt-odd（虚拟窗口首行号会变，nth-child 会在滚动时闪跳）；
+   #terminal 放开原生文本选择，自由选择/拖选由 log-selection.js 接管（记事本手感）。 */
+.vt-spacer{pointer-events:none}
+#terminal{overflow-anchor:none;user-select:text;cursor:text}
+#terminal .log-row:nth-child(even){background:transparent}
+#terminal .log-row.vt-odd{background:#ffffff02}
+body.light-theme #terminal .log-row.vt-odd{background:#26374708}
+.filter button#wtHitListToggle{flex:0 0 auto;padding:6px 10px}
+#wtHitList{position:fixed;z-index:70;width:min(680px,calc(100vw - 16px));max-height:min(60vh,520px);overflow:auto;background:#101b27;border:1px solid #34506a;border-radius:8px;box-shadow:0 10px 30px #0009;padding:6px}
+#wtHitList[hidden]{display:none}
+#wtHitList .hit-head{position:sticky;top:-6px;z-index:1;background:#101b27;padding:6px 8px;font-size:12px;color:#8dabc1;border-bottom:1px solid #24394e}
+#wtHitList .hit-item{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #1b2c3d;color:#c9d9e6;font:12px/1.5 Consolas;padding:5px 8px;cursor:pointer;overflow-wrap:anywhere}
+#wtHitList .hit-item small{color:#6f8ba1;margin-right:6px}
+#wtHitList .hit-item b{color:#8fd0ff;font-weight:600;margin-right:4px}
+#wtHitList .hit-item:hover{background:#1d3a4d}
+#wtHitList .hit-item.active{background:#274b6d}
+#wtHitList .hit-item mark{background:#d9b64b;color:#14181c;border-radius:2px}
+#wtHitList .hit-more{display:block;width:100%;padding:7px;background:none;border:1px dashed #34506a;border-radius:5px;color:#8dabc1;font-size:12px;cursor:pointer;margin-top:4px}
+#wtHitList .hit-more:hover{border-color:#57a6c9;color:#bfe6f5}
+body.light-theme #wtHitList{background:#f7fafc;border-color:#c3d3e0}
+body.light-theme #wtHitList .hit-head{background:#f7fafc;color:#51677a;border-color:#dde6ee}
+body.light-theme #wtHitList .hit-item{color:#263747;border-color:#e3ebf2}
+body.light-theme #wtHitList .hit-item small{color:#7189a0}
+body.light-theme #wtHitList .hit-item b{color:#1c6ca8}
+body.light-theme #wtHitList .hit-item:hover{background:#dbe9f4}
+body.light-theme #wtHitList .hit-item.active{background:#b9d4ee}
+body.light-theme #wtHitList .hit-more{color:#51677a;border-color:#c3d3e0}
+body[data-theme] #wtHitList{background:var(--surface-raised);color:var(--text);border-color:var(--stroke)}
+#terminal:focus{outline:1px solid #34506a;outline-offset:-1px}
+body.light-theme #terminal:focus{outline-color:#b9cbda}
+/* ---- 密度批次（WindTerm 式紧凑）：垂直空间尽量留给输出 ---- */
+header{height:48px;padding:0 12px}
+header b{font-size:15px}
+header button{padding:6px 10px}
+.tabs{height:38px}
+.tab{padding:7px 10px;gap:8px}
+.tab.active{padding-top:5px}
+.tab-kind{font-style:normal;font-size:10px;opacity:.75}
+.filter{height:40px;padding:5px 10px;gap:8px;align-items:center}
+.filter span{padding-top:0}
+.filter .log-meter{margin-left:auto;flex:0 1 38%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0;border-bottom:0;font-size:11px;color:#8dabc1;text-align:right}
+.log-actions{padding:4px 10px}
+.send{height:42px;padding:5px 7px}
+.quick{height:30px}
+button{padding:6px 10px}
+body.light-theme .filter .log-meter{color:#51677a}
+/* ---- 命令补全弹层（command-completion.js） ---- */
+#ccPopup{position:fixed;z-index:80;max-height:min(46vh,420px);overflow:auto;background:#101b27;border:1px solid #34506a;border-radius:8px;box-shadow:0 10px 30px #0009;padding:4px}
+#ccPopup[hidden]{display:none}
+#ccPopup .cc-item{display:block;width:100%;text-align:left;background:none;border:0;border-radius:4px;color:#c9d9e6;font:12px/1.5 Consolas;padding:4px 8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
+#ccPopup .cc-item:hover,#ccPopup .cc-item.on{background:#1d3a4d}
+#ccPopup .cc-foot{padding:4px 8px;font-size:11px;color:#8dabc1;border-top:1px solid #24394e;position:sticky;bottom:-4px;background:#101b27}
+body.light-theme #ccPopup{background:#f7fafc;border-color:#c3d3e0}
+body.light-theme #ccPopup .cc-item{color:#263747}
+body.light-theme #ccPopup .cc-item:hover,body.light-theme #ccPopup .cc-item.on{background:#dbe9f4}
+body.light-theme #ccPopup .cc-foot{color:#51677a;border-color:#dde6ee;background:#f7fafc}
+body[data-theme] #ccPopup{background:var(--surface-raised);color:var(--text);border-color:var(--stroke)}
+/* Notepad++ 式查找栏（log-find.js）：不遮挡日志，贴在操作行下方；命中黄、当前橙。 */
+.find-bar{display:flex;gap:6px;align-items:center;padding:4px 10px;border-bottom:1px solid #1d2a38}
+.find-bar[hidden]{display:none}
+.find-bar input{flex:0 1 320px;min-width:120px}
+.find-bar button{padding:3px 8px}
+.find-bar button[aria-pressed="true"]{background:#274b6d;border-color:#3f6f9a}
+.find-bar .fd-count{font-size:11px;color:#8dabc1;min-width:64px;text-align:center}
+#terminal mark.fd-hit{background:#8a6d1a;color:#101418;border-radius:2px}
+#terminal mark.fd-hit.fd-cur{background:#e08b2d;outline:1px solid #ffd08a}
+body.light-theme .find-bar{background:#f4f7fa;border-color:#d5dee6}
+body.light-theme .find-bar .fd-count{color:#51677a}
+body.light-theme #terminal mark.fd-hit{background:#ffe187;color:#3a2f00}
+body.light-theme #terminal mark.fd-hit.fd-cur{background:#ffb347;color:#3a2f00}

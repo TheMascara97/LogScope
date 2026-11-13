@@ -1,0 +1,4 @@
+'use strict';
+const net=require('node:net');
+function shutdown(core,pipe=process.env.LOGSCOPE_PIPE||'LogScopeCore',timeout=15000){if(!core||core.exitCode!==null)return Promise.resolve({graceful:true});return new Promise(resolve=>{let done=false,buffer='',acknowledged=false;const socket=net.connect('\\\\.\\pipe\\'+pipe);const finish=graceful=>{if(done)return;done=true;clearTimeout(timer);socket.destroy();core.removeListener('exit',onExit);if(!graceful)core.kill();resolve({graceful})};const onExit=()=>finish(acknowledged);core.once('exit',onExit);const timer=setTimeout(()=>finish(false),timeout);socket.on('connect',()=>socket.write(JSON.stringify({type:'core.shutdown'})+'\n'));socket.on('data',bytes=>{buffer+=bytes;if(buffer.length>1024*1024)buffer=buffer.slice(-1024*1024);if(buffer.includes('core.shutdown.ready'))acknowledged=true});socket.on('error',()=>{});socket.on('close',()=>{if(core.exitCode!==null)finish(acknowledged)})})}
+module.exports={shutdown};

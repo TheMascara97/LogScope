@@ -1,0 +1,27 @@
+body{--surface:#1c1c1c;--surface-alt:#222222;--surface-raised:#333333;--canvas:#1c1c1c;--text:#bbbbbb;--subtle:#808080;--stroke:#444444;--accent:#007acc;--hover:#333333;--error:#f92672;--warn:#fd971f;--debug:#66d9ef;--trace:#ae81ff;color-scheme:dark}
+body.light-theme{--surface:#ffffff;--surface-alt:#f5f5f5;--surface-raised:#dcdcdc;--canvas:#ffffff;--text:#333333;--subtle:#6b6b6b;--stroke:#acacac;--accent:#007acc;--hover:#dcdcdc;--error:#c2185b;--warn:#8a4b00;--debug:#0b6fa4;--trace:#6a3fb5;color-scheme:light}
+body.contrast-theme{--surface:#000;--surface-alt:#0a0a0a;--surface-raised:#151515;--canvas:#000;--text:#fff;--subtle:#eee;--stroke:#fff;--accent:#ff0;--hover:#303030;--error:#ff8080;--warn:#ffff60;--debug:#80dfff;--trace:#efaeff;color-scheme:dark}
+body[data-theme]{--fg:var(--text);--muted:var(--subtle);--line:var(--stroke);--green:var(--accent);--red:var(--error);--field:var(--canvas);background:var(--canvas);color:var(--text)}
+:where(body[data-theme]) :is(header,aside,.analysis,.tabs,.filter,.send,.quick,.timer,.toolbox,.log-actions,.log-meter,#workspaceStatus,#logComposer,dialog){background:var(--surface);color:var(--text)}
+:where(body[data-theme]) :is(button,select,.header-more summary,.header-more-items,.log-context){background:var(--surface-raised);color:var(--text);border-color:var(--stroke)}
+:where(body[data-theme]) :is(input:not([type=checkbox]),textarea,pre,#terminal,.manager-dialog input,aside input:not([type=checkbox])){background:var(--canvas);color:var(--text);border-color:var(--stroke)}
+:where(body[data-theme]) :is(label,.fields label,.saved-item,#sessions div,.proto,.dialog-head,.dialog-head button){color:var(--text)}
+:where(body[data-theme]) :is(.dialog-head,.protocols,.finding,.tab.active,.proto.active,.log-message details[open]){background:var(--surface-alt)}
+:where(body[data-theme]) :is(.saved-detail small,.log-time,.log-module,.tab-health,.address-dialog p){color:var(--subtle)}
+:where(body[data-theme]) :is(header b,.side-title,.toolbox summary,.tab.active,.proto.active){color:var(--accent)}
+:where(body[data-theme]) :is(button:hover,.saved-item:hover,#sessions div:hover,.log-row:hover){background:var(--hover)}
+:where(body[data-theme]) .level-ERROR{color:var(--error)}:where(body[data-theme]) .level-WARN{color:var(--warn)}:where(body[data-theme]) .level-INFO{color:var(--text)}:where(body[data-theme]) .level-DEBUG{color:var(--debug)}:where(body[data-theme]) .level-TRACE{color:var(--trace)}
+:where(body[data-theme]) .level-EVENT{color:var(--debug)}:where(body[data-theme]) .level-TX{color:var(--accent)}:where(body[data-theme]) .log-level{background:var(--surface-raised)}:where(body[data-theme]) .log-tag{background:var(--surface-raised);color:var(--debug)}
+:where(body[data-theme]) #exceptionGroups summary{color:var(--warn)}:where(body[data-theme]) #eventGroups summary{color:var(--debug)}:where(body[data-theme]) .event-group{border-left-color:var(--debug)}:where(body[data-theme]) .tab[data-state=connected] .tab-health{color:var(--accent)}
+:where(body[data-theme]) .tab[data-state=error] .tab-health,:where(body[data-theme]) .tab[data-state=reconnecting] .tab-health{color:var(--warn)}
+:where(body[data-theme]) :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+:where(body[data-theme]) :is(input[type=checkbox],input[type=radio]){width:auto;accent-color:var(--accent)}
+.manager-dialog textarea{width:100%;min-height:85px;padding:8px}.manager-dialog pre{height:auto;max-height:280px;white-space:pre-wrap;overflow-wrap:anywhere}.manager-dialog fieldset{border:1px solid var(--stroke);display:grid;grid-template-columns:repeat(2,minmax(100px,1fr));gap:0 10px;margin:10px 0}.manager-dialog fieldset label{min-width:0}.history-entry{display:flex;align-items:center}.history-entry .history-row{flex:1;min-width:0}.history-entry .favorite-command{flex:0 0 auto}
+body[data-theme] .log-row.evidence-focus{outline:2px solid var(--accent);outline-offset:-2px;background:var(--hover)}
+.log-actions[hidden]{display:none}.log-actions input[type=range]{min-width:80px;flex:1}.log-actions span{font-size:11px;align-self:center}
+#multiPane{display:grid;flex:1;min-height:0;gap:5px;background:var(--stroke)}#multiPane[hidden]{display:none}#multiPane[data-layout=horizontal]{grid-template-columns:repeat(2,minmax(0,1fr))}#multiPane[data-layout=vertical]{grid-template-rows:repeat(2,minmax(0,1fr))}#multiPane[data-layout=quad]{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}.session-pane{display:flex;flex-direction:column;min-height:0;min-width:0;background:var(--surface);overflow:hidden}.session-pane[hidden]{display:none}.session-pane pre{flex:1;min-height:0;height:auto;padding:0}.session-pane .log-row{grid-template-columns:80px 45px minmax(80px,1fr);font-size:11px}.session-pane .log-module{display:none}.pane-tools{display:flex;gap:4px;padding:4px}.pane-tools select,.pane-tools input{flex:1;min-width:0}.pane-tools button{padding:4px;font-size:11px}.session-pane>input{padding:5px;border:1px solid var(--stroke)}.session-pane>span{font-size:10px;color:var(--subtle)}.multipane-on #terminal,.multipane-on #terminalHost,.multipane-on #logComposer{display:none!important}
+/* 终端 Bell 视觉反馈：terminal-view.js 的 onBell 给节点加 .term-bell 400ms。
+   用 outline 不动布局；三套主题下金色都够亮。#termSearchBar 复用 .find-bar 皮肤。 */
+@keyframes term-bell-flash{0%{outline:3px solid #e0b34a}55%{outline:3px solid #f7dc8a}100%{outline:3px solid transparent}}
+.term-bell{animation:term-bell-flash .4s ease-out}
+#termSearchBar{flex:0 0 auto}#termSearchBar[hidden]{display:none}

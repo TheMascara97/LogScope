@@ -1,0 +1,4 @@
+'use strict';
+const fs=require('node:fs/promises'),path=require('node:path');
+async function scan(directory){const base=path.resolve(String(directory));const entries=await fs.readdir(base,{withFileTypes:true}),result=[];for(const entry of entries){if(result.length>=500)break;if(!entry.isFile()||!entry.name.endsWith('.log.active'))continue;const marker=path.join(base,entry.name),log=marker.slice(0,-7);const stat=await fs.lstat(marker);if(stat.isSymbolicLink()||stat.size>8192)continue;try{const info=JSON.parse(await fs.readFile(marker,'utf8'));if(path.resolve(info.path)!==log)continue;const logStat=await fs.lstat(log);if(!logStat.isFile()||logStat.isSymbolicLink())continue;result.push({path:log,bytes:logStat.size,started:info.started||'',modified:logStat.mtime.toISOString()})}catch{}}return result}
+module.exports={scan};
